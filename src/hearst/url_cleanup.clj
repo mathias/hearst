@@ -3,6 +3,7 @@
             [cemerick.url :refer [url url-encode url-decode]])
   (:import (java.util.regex Matcher)))
 
+;; replace-by comes from clojure.contrib.string, which is no more.
 (defn- replace-by
   [^CharSequence s re f]
   (let [m (re-matcher re s)]
