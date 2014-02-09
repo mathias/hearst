@@ -41,3 +41,8 @@
 (facts "removes invalid query params"
        (fact (normalize-url "http://example.com?q=") => "http://example.com")
        (fact (normalize-url "http://example.com?=foo") => "http://example.com"))
+
+(facts "removes utm params"
+       (fact (normalize-url "http://example.com?utm_source=foo") => "http://example.com")
+       (fact (normalize-url "http://example.com?utm_content=bar") => "http://example.com")
+       (fact (normalize-url "http://example.com?utm_medium=baz&q=foo") => "http://example.com?q=foo"))

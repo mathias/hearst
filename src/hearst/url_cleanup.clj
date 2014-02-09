@@ -39,8 +39,18 @@
   (filter (fn [q] (and (not-empty q)
                       (every? (fn [z] (not (empty? z))) q))) query))
 
+(defn reject-utm-params [query]
+  (let [utm-params ["utm_campaign"
+                    "utm_medium"
+                    "utm_source"
+                    "utm_content"]]
+    (filter (fn [q] (not (some (set q) utm-params))) query)))
+
 (defn clean-query-params [query]
-  (map clean-each-param (filter-invalid-params query)))
+  (map clean-each-param (->
+                         query
+                         filter-invalid-params
+                         reject-utm-params)))
 
 (defn normalize-url [uri]
   (let [parsed-url (url uri)]
