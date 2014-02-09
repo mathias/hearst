@@ -30,15 +30,17 @@
      ;; decode unreserved characters
     (clojure.string/replace #"(%7E)" "~"))))
 
-(defn clean-each-param [k v]
-  [k (normalize-percent-encodings v)])
+(defn clean-each-param
+  ([q] (apply clean-each-param (vec q)))
+  ([k v]
+     [k (normalize-percent-encodings v)]))
 
-(defn filter-valid-params [query]
-  (filter (fn [[k v]] (not (or (empty? k)
-                              (empty? v)))) query))
+(defn filter-invalid-params [query]
+  (filter (fn [q] (and (not-empty q)
+                      (every? (fn [z] (not (empty? z))) q))) query))
 
 (defn clean-query-params [query]
-  (map clean-each-param (filter-valid-params query)))
+  (map clean-each-param (filter-invalid-params query)))
 
 (defn normalize-url [uri]
   (let [parsed-url (url uri)]
