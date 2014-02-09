@@ -46,3 +46,6 @@
        (fact (normalize-url "http://example.com?utm_source=foo") => "http://example.com")
        (fact (normalize-url "http://example.com?utm_content=bar") => "http://example.com")
        (fact (normalize-url "http://example.com?utm_medium=baz&q=foo") => "http://example.com?q=foo"))
+
+(fact "handles IP addresses without issue"
+      (normalize-url "http://127.0.0.1//foo") => "http://127.0.0.1/foo")
