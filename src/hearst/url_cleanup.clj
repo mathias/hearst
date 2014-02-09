@@ -33,9 +33,12 @@
 (defn clean-each-param [k v]
   [k (normalize-percent-encodings v)])
 
-(defn clean-query-params [query]
-  (map clean-each-param query))
+(defn filter-valid-params [query]
+  (filter (fn [[k v]] (not (or (empty? k)
+                              (empty? v)))) query))
 
+(defn clean-query-params [query]
+  (map clean-each-param (filter-valid-params query)))
 
 (defn normalize-url [uri]
   (let [parsed-url (url uri)]

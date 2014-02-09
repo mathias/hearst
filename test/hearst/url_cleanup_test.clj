@@ -37,3 +37,7 @@
        (fact (normalize-url "http://www.example.com/foo/../foo") => "http://www.example.com/foo")
        (fact (normalize-url "http://www.example.com/foo/") => "http://www.example.com/foo")
        (fact (normalize-url "http://www.example.com/foo///bar//") => "http://www.example.com/foo/bar"))
+
+(facts "removes invalid query params"
+       (fact (normalize-url "http://example.com?q=") => "http://example.com")
+       (fact (normalize-url "http://example.com?=foo") => "http://example.com"))
