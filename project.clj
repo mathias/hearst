@@ -1,4 +1,4 @@
-(defproject hearst "0.1.0-SNAPSHOT"
+(defproject hearst "0.1.1-SNAPSHOT"
   :description "Article/website content extraction"
   :url "https://github.com/mathias/hearst"
   :license {:name "Eclipse Public License"
