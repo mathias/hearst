@@ -21,11 +21,10 @@
       =>
       "http://example.com/~jane")
 
-(comment
-  (fact "decode reserved characters"
-        (normalize-url "http://example.com//%3Ffoo%3Dbar%26bif%3Dbaz")
-        =>
-        "http://example.com/?foo=bar&bif=baz"))
+(fact "decode reserved characters"
+      (normalize-url "http://example.com//%3Ffoo%3Dbar%26bif%3Dbaz")
+      =>
+      "http://example.com/?foo=bar&bif=baz")
 
 (facts "removing empty user info as part of normalization"
        (fact "http://:@example.com/"
