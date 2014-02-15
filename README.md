@@ -17,7 +17,7 @@ With Leiningen, add it to the dependencies in `project.clj`:
 ### URL normalization
 
 ```clojure
-user=> (use 'heart.url-cleanup)
+user=> (use 'hearst.url-cleanup)
 user=> (normalize-url "http://example.com/%7Ejane?q=Search&ugly=%c2%b1&utm_source=example.com&utm_medium=whoknows")
 "http://example.com/~jane?q=Search&ugly=%C2%B1"
 ```
