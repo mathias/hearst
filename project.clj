@@ -1,5 +1,5 @@
 (defproject hearst "0.1.1-SNAPSHOT"
-  :description "Article/website content extraction"
+  :description "URL normalizer, article content extraction, summary generator."
   :url "https://github.com/mathias/hearst"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}

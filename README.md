@@ -1,6 +1,6 @@
 # hearst
 
-Article/website content extraction. Because the world needed another one.
+URL normalizer, article content extraction, summary generator. Because the world needed another one.
 
 ### The Most Recent Release
 
