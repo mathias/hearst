@@ -7,4 +7,4 @@
                  [com.cemerick/url "0.1.1"]]
   :profiles {:dev
              {:dependencies [[midje "1.6.3"]]
-              :plugins [[lein-midje "3.1.1"]]}})
+              :plugins [[lein-midje "3.1.3"]]}})
